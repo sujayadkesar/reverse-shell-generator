@@ -10,7 +10,7 @@ ip = input("\n\nEnter Your ip address\n")
 port = input("Enter the listning port number\n")
 
 def guide():
-    subheading1 = Figlet(font="cybermedium")
+    subheading1 = Figlet(font="standard")
 # doom big eftipiti cybermedium epic larry3d mini ogre puffy 
     print(subheading1.renderText("Listner"))
 

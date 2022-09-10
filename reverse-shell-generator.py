@@ -11,18 +11,21 @@ print(heading.renderText("Reverse-shell\ngenerator"))
 
 
 # detecting system ip address
+
 hostname = socket.gethostname()
 ipaddress = socket.gethostbyname(hostname)
 print("\n\nYour ip address is :"+ipaddress)
 
 #taking ip and port number from the user
+
 ip = input(Fore.YELLOW + "\nEnter the ip address\n")
 port = input("Enter the listning port number\n")
 
 
 #difining a function to display the usage guidelines
+
 def guide():
-    subheading1 = Figlet(font="doom")
+    subheading1 = Figlet(font="standard")
 # doom big eftipiti cybermedium epic larry3d mini ogre puffy 
     print(subheading1.renderText("Listner"))
 
@@ -33,7 +36,7 @@ def guide():
     print("{:30s} {:30s}".format("5  rustcat", "11  powercat"))
     print("{:30s} {:30s}".format("6  pwncat", "12  msfconsole\n\n"))
 
-    subheading2 = Figlet(font='doom')
+    subheading2 = Figlet(font='standard')
     print(subheading2.renderText("Reverse-shell"))
 
     print("{:30s} {:30s} {:30s}".format("1   Bash -i" , "11  nc -e " , "21  ncat -e "))

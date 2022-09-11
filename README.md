@@ -1,5 +1,5 @@
 # reverse-shell-generator
-
+``` bash
 local_host@sujayadkesar:~/Desktop# python3 shell.py
  _____                                         _          _ _
 |  __ \                                       | |        | | |
@@ -94,9 +94,8 @@ example:-
 
 rsg listner 4                  rsg reverse-shell 19
 
-
 $
-
+```
 ### Licensing
 
 This project is licensed under the [MIT license](LICENSE).

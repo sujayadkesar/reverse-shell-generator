@@ -5,29 +5,61 @@ import socket
 from colorama import Fore , Back , Style 
 from turtle import heading
 from pyfiglet import Figlet
+import re
+import psutil
+
+
+def colored(r, g, b, text):
+    return "\033[38;2;{};{};{}m{} \033[38;2;255;255;255m".format(r, g, b, text)
+
 
 heading = Figlet(font='big')
-print(heading.renderText("Reverse-shell\ngenerator"))
+print(colored(255,0,0,heading.renderText("Reverse-shell\ngenerator\n\n")))
 
 
-# detecting system ip address
 
-hostname = socket.gethostname()
-ipaddress = socket.gethostbyname(hostname)
-print("\n\nYour ip address is :"+ipaddress)
 
-#taking ip and port number from the user
+def get_ip_addresses(all):
+    for interface, snics in psutil.net_if_addrs().items():
+        for snic in snics:
+            if snic.family == all:
+                yield(interface, snic.address)
 
-ip = input(Fore.YELLOW + "\nEnter the ip address\n")
-port = input("Enter the listning port number\n")
+def ip():
+    ipv4 = list(get_ip_addresses(socket.AF_INET))
+    for i in ipv4:
+        print(colored(255,255,0,"{:40s} {:10s} {:1s}".format(i[0],":",i[1])))
+ip()
+    
+    
+    
+    
+#  Getting the ip from the user
+def get_ip_and_port():
+    while True:
+        ip = str(input("\n\nEnter IP Address : "))
+        if re.match(r'^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$', ip):
+            break
+        else:
+            print("\033[91m\033[1mCheck the IP address !\x1b[0m")
+            continue
 
+    while True:
+        port = input("Enter Port Number : ")
+        if re.match(r'^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$', port):
+            break
+        else:
+            print("\033[91m\033[1mCheck the port Number !\x1b[0m")
+            continue
+
+get_ip_and_port()
 
 #difining a function to display the usage guidelines
 
 def guide():
     subheading1 = Figlet(font="standard")
 # doom big eftipiti cybermedium epic larry3d mini ogre puffy 
-    print(subheading1.renderText("Listner"))
+    print(colored(0,255,255,subheading1.renderText("\nListner")))
 
     print("{:30s} {:30s}".format("1  nc", "7   rustcat +command history"))
     print("{:30s} {:30s}".format("2  ncat", "8   Windows ConPty"))
@@ -37,7 +69,7 @@ def guide():
     print("{:30s} {:30s}".format("6  pwncat", "12  msfconsole\n\n"))
 
     subheading2 = Figlet(font='standard')
-    print(subheading2.renderText("Reverse-shell"))
+    print(colored(0,255,255,subheading2.renderText("Reverse-shell")))
 
     print("{:30s} {:30s} {:30s}".format("1   Bash -i" , "11  nc -e " , "21  ncat -e "))
     print("{:30s} {:30s} {:30s}".format("2   Bash 196" , "12  ncmkfifo " , "22  ncat.exe -e "))
@@ -62,8 +94,8 @@ def guide():
     print("set lport                                                = to set or change the listing port number")
     print("show                                                     = to print the lhost and lport")
     print("rsg -h                                                   = list the reverse-shell and listners")
-    print("example:-\n")
-    print("{:30s} {:30s}".format("rsg listner 4", "rsg reverse-shell 19\n\n"))
+    print(colored(255,255,0,"\nexample:-\n"))
+    print(colored(255,255,0,"{:30s} {:30s}".format("rsg listner 4", "rsg reverse-shell 19\n\n")))
 
 
 guide()
@@ -335,11 +367,11 @@ except KeyboardInterrupt:\n
         
         
     elif take == "ifconfig":
-        print("IPV4 Address :"+ipaddress)
+        get_ip_and_port()
         
         
     elif take == "ipconfig":
-        print("IPV4 Address   :"+ipaddress)
+        get_ip_and_port()
         
     elif take == "exit":
         break

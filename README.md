@@ -1,4 +1,7 @@
 # reverse-shell-generator
+
+![Como obtener una reverse shell - Nullsector.co](https://nullsector.co/wp-content/uploads/2017/12/Bash-new.sh_.png)
+
 ## Installation
 
 ``` 
@@ -14,7 +17,7 @@ python3 -m pip install requirements.txt
 python3 reverse-shell-generator.py 
 ```
 
-![Como obtener una reverse shell - Nullsector.co](https://nullsector.co/wp-content/uploads/2017/12/Bash-new.sh_.png)
+
 
 ``` bash
 local_host@sujayadkesar:~/Desktop# python3 shell.py

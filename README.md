@@ -1,4 +1,21 @@
 # reverse-shell-generator
+## Installation
+
+``` 
+ git clone https://github.com/sujayadkesar/reverse-shell-generator.git
+ ```
+``` 
+cd reverse-shell-generator
+```
+``` 
+python3 -m pip install requirements.txt 
+```
+``` 
+python3 reverse-shell-generator.py 
+```
+![GitHub - n0obit4/rvs-shell: Programs to make reverse shells ψ(｀∇´)ψ](https://raw.githubusercontent.com/n0obit4/rvs-shell/master/Logo.png)
+
+
 ``` bash
 local_host@sujayadkesar:~/Desktop# python3 shell.py
  _____                                         _          _ _
@@ -96,12 +113,7 @@ rsg listner 4                  rsg reverse-shell 19
 
 $
 ```
-## Installation
 
-``` git clone https://github.com/sujayadkesar/reverse-shell-generator.git```
-``` cd reverse-shell-generator```
-``` python3 -m pip install requirements.txt ```
-``` python3 reverse-shell-generator.py ```
 
 ### Licensing
 

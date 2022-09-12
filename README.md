@@ -13,8 +13,8 @@ python3 -m pip install requirements.txt
 ``` 
 python3 reverse-shell-generator.py 
 ```
-![GitHub - n0obit4/rvs-shell: Programs to make reverse shells ψ(｀∇´)ψ](https://raw.githubusercontent.com/n0obit4/rvs-shell/master/Logo.png)
 
+![Como obtener una reverse shell - Nullsector.co](https://nullsector.co/wp-content/uploads/2017/12/Bash-new.sh_.png)
 
 ``` bash
 local_host@sujayadkesar:~/Desktop# python3 shell.py

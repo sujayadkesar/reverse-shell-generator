@@ -96,6 +96,13 @@ rsg listner 4                  rsg reverse-shell 19
 
 $
 ```
+## Installation
+
+``` git clone https://github.com/sujayadkesar/reverse-shell-generator.git```
+``` cd reverse-shell-generator```
+``` python3 -m pip install requirements.txt ```
+``` python3 reverse-shell-generator.py ```
+
 ### Licensing
 
 This project is licensed under the [MIT license](LICENSE).

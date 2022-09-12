@@ -9,16 +9,60 @@ import re
 import psutil
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 99749725f5310ac02fd95e05dfda3b3580b60ff3
 def colored(r, g, b, text):
     return "\033[38;2;{};{};{}m{} \033[38;2;255;255;255m".format(r, g, b, text)
 
 
 heading = Figlet(font='big')
+<<<<<<< HEAD
 print(colored(255,0,0,heading.renderText("Reverse-shell\ngenerator\n")))
 
 
+=======
+print(colored(255,0,0,heading.renderText("Reverse-shell\ngenerator\n\n")))
 
+
+
+
+def get_ip_addresses(all):
+    for interface, snics in psutil.net_if_addrs().items():
+        for snic in snics:
+            if snic.family == all:
+                yield(interface, snic.address)
+
+def ip():
+    ipv4 = list(get_ip_addresses(socket.AF_INET))
+    for i in ipv4:
+        print(colored(255,255,0,"{:40s} {:10s} {:1s}".format(i[0],":",i[1])))
+ip()
+    
+    
+    
+    
+#  Getting the ip from the user
+def get_ip_and_port():
+    while True:
+        ip = str(input("\n\nEnter IP Address : "))
+        if re.match(r'^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$', ip):
+            break
+        else:
+            print("\033[91m\033[1mCheck the IP address !\x1b[0m")
+            continue
+>>>>>>> 99749725f5310ac02fd95e05dfda3b3580b60ff3
+
+    while True:
+        port = input("Enter Port Number : ")
+        if re.match(r'^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$', port):
+            break
+        else:
+            print("\033[91m\033[1mCheck the port Number !\x1b[0m")
+            continue
+
+get_ip_and_port()
 
 print("*******************\n")
 print(colored(0,255,255,"@SUJAY_ADKESAR : https://sujayadkesar.github.io/portfolio"))
@@ -101,7 +145,11 @@ def guide():
     print("show                                                     = to print the lhost and lport")
     print("rsg -h                                                   = list the reverse-shell and listners")
     print(colored(255,255,0,"\nexample:-\n"))
+<<<<<<< HEAD
     print(colored(255,255,0,"{:30s} {:30s} {:30s}".format("rsg listner 4", "rsg reverse-shell 19", "rsg -h\n\n")))
+=======
+    print(colored(255,255,0,"{:30s} {:30s}".format("rsg listner 4", "rsg reverse-shell 19\n\n")))
+>>>>>>> 99749725f5310ac02fd95e05dfda3b3580b60ff3
 
 
 guide()
@@ -388,6 +436,7 @@ except KeyboardInterrupt:\n
         
         
     elif take == "ifconfig":
+<<<<<<< HEAD
         os.system('ifconfig')
         
     elif take == 'pwd':
@@ -401,6 +450,13 @@ except KeyboardInterrupt:\n
     elif take == 'cd ..':
         os.system('cd ..')
 
+=======
+        get_ip_and_port()
+        
+        
+    elif take == "ipconfig":
+        get_ip_and_port()
+>>>>>>> 99749725f5310ac02fd95e05dfda3b3580b60ff3
         
     elif take == "exit":
         break

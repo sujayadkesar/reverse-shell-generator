@@ -17,6 +17,11 @@ python3 -m pip install requirements.txt
 python3 reverse-shell-generator.py 
 ```
 
+> **Note** : To access this tool from any directory  
+> ```
+>  ln -sf <complete path to reverse-shell.py> /usr/local/bin/reverse-shell-generator
+>  ```
+
 
 
 ``` bash

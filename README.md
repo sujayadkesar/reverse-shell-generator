@@ -4,6 +4,13 @@
 
 ## Installation
 
+> **Note** : python3 and pip must be installed **ignore this if installed**
+> ```
+> sudo apt update
+> sudo apt install python3
+> sudo apt install python3-pip
+>  ```
+
 ``` 
  git clone https://github.com/sujayadkesar/reverse-shell-generator.git
  ```

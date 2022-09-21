@@ -16,7 +16,7 @@ def colored(r, g, b, text):
 
 
 heading = Figlet(font='big')
-print(colored(255,0,0,heading.renderText("Reverse-shell\ngenerator\n")))
+print(colored(0, 213, 255,heading.renderText("Reverse-shell\ngenerator\n")))
 
 
 

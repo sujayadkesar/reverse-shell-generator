@@ -2,9 +2,27 @@
 
 ![Como obtener una reverse shell - Nullsector.co](https://nullsector.co/wp-content/uploads/2017/12/Bash-new.sh_.png)
 
-## Installation
 
 
+##  Welcome to the Reverse Shell Generator 🔀🤖
+
+The Reverse Shell Generator is a tool that enables you to quickly and easily generate reverse shells for a variety of operating systems and platforms. With its user-friendly interface, you can easily customize the settings for your reverse shell, such as the host and port to connect to, and generate the command to execute on the target machine.
+
+Whether you're a penetration tester, a network administrator, or a developer, the Reverse Shell Generator can save you time and effort by automating the process of generating reverse shells. Plus, with support for multiple languages and platforms, the Reverse Shell Generator is a versatile tool that can be used in a variety of scenarios.
+
+## Some of the features of Reverse Shell Generator include:
+
+-   😀User-friendly interface
+-   🚨Multiple languages supported (e.g. Bash, Python, PowerShell, etc.)
+-   ⚡Multiple platforms supported (e.g. Windows, Linux, macOS, etc.)
+-   🐺Customizable settings (e.g. host, port, etc.)
+-   🤹Generate command with one click
+
+Ready to start generating reverse shells? Try the Reverse Shell Generator now! 🚀
+
+
+
+## :teacher: Installation
 > **Note** : python3 and pip must be installed **ignore this if installed**
 > ```
 > sudo apt update
@@ -129,6 +147,20 @@ rsg listner 4                  rsg reverse-shell 19
 
 $
 ```
+Contribution 🤝 If you're interested in contributing to the development of Reverse Shell Generator, we would love to have you on board! We are constantly looking for ways to improve and add new features, and your contributions can help make Reverse Shell Generator even more powerful and useful.
+
+Here are a few ways you can contribute to the project:
+
+-   Report bugs or request new features by creating an issue on our GitHub repository.🐛
+-   Help us improve the documentation by submitting updates or corrections.📚
+-   Contribute code by submitting pull requests with bug fixes or new features.💻
+-   Share Reverse Shell Generator with your friends, colleagues, and on social media to help spread the word and grow the community.📣
+
+No matter how you choose to contribute, your help is greatly appreciated! Together, we can make Reverse Shell Generator the best tool for generating reverse shells. Thank you for your support! 🙏
+
+Please make sure to read the [Code of Conduct](https://chat.openai.com/CODE_OF_CONDUCT.md) and [CONTRIBUTING.md](https://chat.openai.com/CONTRIBUTING.md) before contributing to the project.
+
+> :warning: **Please note that using this tool for illegal or unauthorized purposes is strictly prohibited and the developers take no responsibility for any misuse of the tool. Use at your own risk.**
 
 
 ### Licensing

@@ -147,9 +147,11 @@ rsg listner 4                  rsg reverse-shell 19
 
 $
 ```
-Contribution 🤝 If you're interested in contributing to the development of Reverse Shell Generator, we would love to have you on board! We are constantly looking for ways to improve and add new features, and your contributions can help make Reverse Shell Generator even more powerful and useful.
 
-Here are a few ways you can contribute to the project:
+## Contribution 🤝 <br>
+If you're interested in contributing to the development of Reverse Shell Generator, we would love to have you on board! We are constantly looking for ways to improve and add new features, and your contributions can help make Reverse Shell Generator even more powerful and useful.
+
+## Here are a few ways you can contribute to the project:
 
 -   Report bugs or request new features by creating an issue on our GitHub repository.🐛
 -   Help us improve the documentation by submitting updates or corrections.📚

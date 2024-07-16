@@ -2,3 +2,4 @@ colorama == 0.4.4
 pyinstaller
 psutil == 2.1.1
 pyfiglet == 0.7
+setuptools>=70.0.0 # not directly required, pinned by Snyk to avoid a vulnerability
